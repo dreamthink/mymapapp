@@ -68,7 +68,8 @@ angular.module("MyMapApp", [])
 			}).then(function successCallback(responseWeather) {
 				console.log("Weather success");
 				console.log(responseWeather);
-				
+				console.log(responseWeather.data.main.temp_max);
+				vm.temp = responseWeather.data.main.temp_max;
 			}, function errorCallback(responseWeather) {
 				console.log("Weather error");
 				console.log(responseWeather);
