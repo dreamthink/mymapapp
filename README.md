@@ -1,1 +1,1 @@
-dreamthink.github.io/myweatherapp
+http://dreamthink.github.io/myweatherapp
