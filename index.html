@@ -10,8 +10,10 @@
 </head>
 <body ng-controller="MapController as vm">
 	<h1>Where am I?</h1>
-
-
+	<div class="latitude" ng-cloak>Latitude: {{ vm.latitude }}</div>
+	<div class="longitude" ng-cloak>Longitude: {{ vm.longitude }}</div>
+	<div class="weather-report" ng-cloak>Weather report: {{ vm.description }}</div>
+	
 	<script src="js/app.js"></script>
 </body>
 </html>
