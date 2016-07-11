@@ -12,14 +12,16 @@
 	<div class="container">
 		<h1>My Weather App</h1>
 		<h3 ng-cloak>Temperature</h3>
-		<h3 ng-cloak>{{ vm.temp }}°</h3>
-	<div class="buttons">
+			<div class="buttons">
 		<button class="btn" ng-click="vm.getWeatherF()">F</button>
 		<button class="btn" ng-click="vm.getWeatherC()">C</button>
 	</div>
+		<h3 ng-cloak>{{ vm.temp }}°</h3>
+
 		<h3 ng-cloak>{{ vm.town }}</h3>
-		<div class="icon"></div>
-		<div ng-cloak ng-src="http://openweathermap.org/img/w/" + {{ vm.icon }} + ".png"></div>
+		<div class="icon">
+			<img ng-src="http://openweathermap.org/img/w/{{ vm.icon }}.png" />
+		</div>
 		<h3 ng-cloak>{{ vm.description }}</h3>
 	</div>
 

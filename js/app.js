@@ -48,6 +48,7 @@ angular.module("MyMapApp", [])
 				vm.temp = responseWeather.data.main.temp;
 				vm.town = responseWeather.data.name;
 				vm.description = responseWeather.data.weather[0].description;
+				vm.icon = responseWeather.data.weather[0].icon;
 			}, function errorCallback(responseWeather) {
 				console.log("Weather error");
 				console.log(responseWeather);
