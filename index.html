@@ -19,7 +19,7 @@
 		<h3 ng-cloak ng-if="vm.weatherC">{{ vm.temp | number:0 }}° C</h3>
 		<button class="btn" ng-click="vm.getWeatherF()">F</button>
 		<button class="btn" ng-click="vm.getWeatherC()">C</button>
-		<h3 ng-cloak>{{ vm.town }}</h3>
+		<h3 ng-cloak>{{ vm.town }}, {{ vm.country }}</h3>
 		<div class="icon">
 			<img ng-src="http://openweathermap.org/img/w/{{ vm.icon }}.png" />
 		</div>
