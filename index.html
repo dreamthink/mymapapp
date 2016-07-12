@@ -2,6 +2,7 @@
 <html lang="en" ng-app="MyMapApp">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>My Map App</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
@@ -10,20 +11,24 @@
 </head>
 <body ng-controller="MapController as vm">
 	<div class="container">
+		<div class="row">
 		<h1>My Weather App</h1>
 		<h3 ng-cloak>Temperature</h3>
 			<div class="buttons">
+		<h3 ng-cloak ng-if="vm.weatherF">{{ vm.temp | number:0 }}° <span ng-click="vm.getWeatherF()">F</span></h3>
+		<h3 ng-cloak ng-if="vm.weatherC">{{ vm.temp | number:0 }}° C</h3>
 		<button class="btn" ng-click="vm.getWeatherF()">F</button>
 		<button class="btn" ng-click="vm.getWeatherC()">C</button>
-	</div>
-		<h3 ng-cloak>{{ vm.temp }}°</h3>
-
 		<h3 ng-cloak>{{ vm.town }}</h3>
 		<div class="icon">
 			<img ng-src="http://openweathermap.org/img/w/{{ vm.icon }}.png" />
 		</div>
 		<h3 ng-cloak>{{ vm.description }}</h3>
 	</div>
+
+		</div>
+	</div>
+
 
 	<script src="js/app.js"></script>
 </body>

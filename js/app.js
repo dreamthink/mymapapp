@@ -1,9 +1,12 @@
-var latitude;
-var longitude;
+// declare global variables
+var latitude, longitude;
 
 angular.module("MyMapApp", [])
 	.controller("MapController", ["$http", function($http) {
 		var vm = this;
+	// set Fahrenheit
+		vm.weatherF = true;
+		vm.weatherC = false;
 
 	// get geolocation coordinate susing Google Map API to bypass Chrome geolocation restriction to https only
 		function getMapLocation() {
@@ -12,7 +15,7 @@ angular.module("MyMapApp", [])
 				url: url,
 				method: "POST"
 			}).then(function successCallback(response){
-				console.log("geolocation coordinate success!");
+				console.log("geolocation coordinate success");
 				console.log(response);
 				vm.latitude = response.data.location.lat;
 				vm.longitude = response.data.location.lng;
@@ -27,8 +30,10 @@ angular.module("MyMapApp", [])
 		}
 		getMapLocation();
 
-	// get values in Fahrenheit
+	// get values in Fahrenheit using "imperial" units
 		 vm.getWeatherF = function() {
+		 	vm.weatherF = true;
+		 	vm.weatherC = false;
 			var url = "http://api.openweathermap.org/data/2.5/weather";
 			var APIKEY = "3cf58566cfe72e04e12f3a19d54e08dd";
 			var params = {
@@ -37,12 +42,13 @@ angular.module("MyMapApp", [])
 				lon: longitude,
 				units: "imperial"
 			};
+		
 			$http({
 				method: "GET",
 				url: url,
 				params: params
 			}).then(function successCallback(responseWeather) {
-				console.log("Weather success");
+				console.log("Weather fahrenheit success");
 				console.log(responseWeather);
 				console.log(responseWeather.data.main.temp);
 				vm.temp = responseWeather.data.main.temp;
@@ -50,13 +56,15 @@ angular.module("MyMapApp", [])
 				vm.description = responseWeather.data.weather[0].description;
 				vm.icon = responseWeather.data.weather[0].icon;
 			}, function errorCallback(responseWeather) {
-				console.log("Weather error");
+				console.log("Weather fahrenheit error");
 				console.log(responseWeather);
 			});
 		};
 	
-	// get values in Celsius
+	// get values in Celsius using "metric" units
 		vm.getWeatherC = function() {
+			vm.weatherF = false;
+			vm.weatherC = true;
 			var url = "http://api.openweathermap.org/data/2.5/weather";
 			var APIKEY = "3cf58566cfe72e04e12f3a19d54e08dd";
 			var params = {
@@ -70,7 +78,7 @@ angular.module("MyMapApp", [])
 				url: url,
 				params: params
 			}).then(function successCallback(responseWeather) {
-				console.log("Weather success");
+				console.log("Weather celsuis success");
 				console.log(responseWeather);
 				console.log(responseWeather.data.main.temp);
 				vm.temp = responseWeather.data.main.temp;
@@ -78,11 +86,10 @@ angular.module("MyMapApp", [])
 				vm.description = responseWeather.data.weather[0].description;
 				vm.icon = responseWeather.data.weather[0].icon;
 			}, function errorCallback(responseWeather) {
-				console.log("Weather error");
+				console.log("Weather celsius error");
 				console.log(responseWeather);
 			});
 		};
 
+}]);
 
-
-	}]);
