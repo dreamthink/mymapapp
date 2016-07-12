@@ -79,7 +79,7 @@ angular.module("MyMapApp", [])
 				url: url,
 				params: params
 			}).then(function successCallback(responseWeather) {
-				console.log("Weather celsuis success");
+				console.log("Weather celsius success");
 				console.log(responseWeather);
 				console.log(responseWeather.data.main.temp);
 				vm.temp = responseWeather.data.main.temp;
