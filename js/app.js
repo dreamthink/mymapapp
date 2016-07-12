@@ -51,7 +51,7 @@ angular.module("MyMapApp", [])
 				console.log("Weather fahrenheit success");
 				console.log(responseWeather);
 				console.log(responseWeather.data.main.temp);
-				vm.temp = responseWeather.data.main.temp;
+				vm.tempF = responseWeather.data.main.temp;
 				vm.town = responseWeather.data.name;
 				vm.country = responseWeather.data.sys.country;
 				vm.description = responseWeather.data.weather[0].description;
@@ -82,7 +82,7 @@ angular.module("MyMapApp", [])
 				console.log("Weather celsius success");
 				console.log(responseWeather);
 				console.log(responseWeather.data.main.temp);
-				vm.temp = responseWeather.data.main.temp;
+				vm.tempC = responseWeather.data.main.temp;
 			}, function errorCallback(responseWeather) {
 				console.log("Weather celsius error");
 				console.log(responseWeather);

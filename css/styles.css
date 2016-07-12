@@ -18,10 +18,17 @@ h3 {
 	text-align: center;
 }
 
-.buttons {
-	text-align: center;
+span {
+	text-decoration: underline;
+	color: dodgerblue;
+	vertical-align: super;
+	font-size: 0.5em;
 }
 
-.icon {
-	padding: 1em 45% 0em;
+span:hover {
+	color: orange;
+}
+
+img {
+	margin: 0 auto 0 45%;
 }
