@@ -1,5 +1,5 @@
 // declare global variables
-var latitude, longitude;
+var latitude, longitude, town, country;
 
 angular.module("MyMapApp", [])
 	.controller("MapController", ["$http", function($http) {
@@ -53,13 +53,19 @@ angular.module("MyMapApp", [])
 				console.log(responseWeather.data.main.temp);
 				vm.tempF = responseWeather.data.main.temp;
 				vm.town = responseWeather.data.name;
+				town = responseWeather.data.name;
 				vm.country = responseWeather.data.sys.country;
+				country = responseWeather.data.sys.country;
 				vm.description = responseWeather.data.weather[0].description;
 				vm.icon = responseWeather.data.weather[0].icon;
+				vm.get5DayForecast();
 			}, function errorCallback(responseWeather) {
 				console.log("Weather fahrenheit error");
 				console.log(responseWeather);
 			});
+
+			
+
 		};
 	
 	// get values in Celsius using "metric" units
@@ -88,6 +94,31 @@ angular.module("MyMapApp", [])
 				console.log(responseWeather);
 			});
 		};
+
+
+	// get 5-day forecast
+		vm.get5DayForecast = function() {
+			var url = "http://api.openweathermap.org/data/2.5/forecast";
+			var APIKEY = "3cf58566cfe72e04e12f3a19d54e08dd";
+			var params = {
+				cityname: "London",
+				APPID: APIKEY
+			};
+			$http({
+				method: "GET",
+				url: url,
+				params: params
+				}).then(function successCallback(response5day) {
+				console.log("5 day forecast success");
+				console.log(response5day);
+			}, function errorCallback(response5day) {
+				console.log("5 day forecast error");
+				console.log(response5day);
+			});
+
+		};
+
+		// vm.get5DayForecast();
 
 }]);
 

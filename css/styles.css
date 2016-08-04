@@ -32,3 +32,15 @@ span:hover {
 img {
 	margin: 0 auto 0 45%;
 }
+
+#footer {
+	text-align: center;
+	margin: 10em auto 0 auto;
+	padding: 1em;
+	height: 3.5em;
+	position: fixed;	
+	bottom: 0;
+	width: 100%;
+	background-color: #66ccff;
+}
+
