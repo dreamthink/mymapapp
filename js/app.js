@@ -101,7 +101,7 @@ angular.module("MyMapApp", [])
 			var url = "http://api.openweathermap.org/data/2.5/forecast";
 			var APIKEY = "3cf58566cfe72e04e12f3a19d54e08dd";
 			var params = {
-				cityname: "London",
+				q: town + "," + country,
 				APPID: APIKEY
 			};
 			$http({
@@ -111,6 +111,8 @@ angular.module("MyMapApp", [])
 				}).then(function successCallback(response5day) {
 				console.log("5 day forecast success");
 				console.log(response5day);
+				vm.fiveDayForecastDescription = response5day.data.list[5].weather[0].description;
+				vm.fiveDayForecast1 = response5day.data.list[5].dt_txt;
 			}, function errorCallback(response5day) {
 				console.log("5 day forecast error");
 				console.log(response5day);

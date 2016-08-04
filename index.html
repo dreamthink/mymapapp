@@ -18,6 +18,10 @@
 					<h1 ng-cloak ng-show="vm.weatherC">{{ vm.tempC | number:0 }}°<span ng-click="vm.getWeatherF()">C</span></h1>
 					<img ng-src="http://openweathermap.org/img/w/{{ vm.icon }}.png" />
 					<h3 ng-cloak>{{ vm.description }}</h3>
+					<div id="5day" ng-cloak>
+					{{ vm.fiveDayForecast1}} | {{ vm.fiveDayForecastDescription }}
+
+					</div>
 			</div>
 		</div>
 	</div>
