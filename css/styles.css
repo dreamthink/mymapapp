@@ -44,3 +44,10 @@ img {
 	background-color: #66ccff;
 }
 
+td {
+	padding: 0.5em;
+}
+
+.fiveDayIcon {
+	margin: 0 auto;
+}

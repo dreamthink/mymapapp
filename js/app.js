@@ -63,9 +63,6 @@ angular.module("MyMapApp", [])
 				console.log("Weather fahrenheit error");
 				console.log(responseWeather);
 			});
-
-			
-
 		};
 	
 	// get values in Celsius using "metric" units
@@ -95,7 +92,6 @@ angular.module("MyMapApp", [])
 			});
 		};
 
-
 	// get 5-day forecast
 		vm.get5DayForecast = function() {
 			var url = "http://api.openweathermap.org/data/2.5/forecast";
@@ -111,16 +107,26 @@ angular.module("MyMapApp", [])
 				}).then(function successCallback(response5day) {
 				console.log("5 day forecast success");
 				console.log(response5day);
-				vm.fiveDayForecastDescription = response5day.data.list[5].weather[0].description;
 				vm.fiveDayForecast1 = response5day.data.list[5].dt_txt;
+				vm.fiveDayForecast2 = response5day.data.list[13].dt_txt;
+				vm.fiveDayForecast3 = response5day.data.list[21].dt_txt;
+				vm.fiveDayForecast4 = response5day.data.list[29].dt_txt;
+				vm.fiveDayForecast5 = response5day.data.list[37].dt_txt;
+				vm.icon1 = response5day.data.list[5].weather[0].icon;
+				vm.icon2 = response5day.data.list[13].weather[0].icon;
+				vm.icon3 = response5day.data.list[21].weather[0].icon;
+				vm.icon4 = response5day.data.list[29].weather[0].icon;
+				vm.icon5 = response5day.data.list[37].weather[0].icon;
+				vm.fiveDayForecastDescription1 = response5day.data.list[5].weather[0].description;
+				vm.fiveDayForecastDescription2 = response5day.data.list[13].weather[0].description;
+				vm.fiveDayForecastDescription3 = response5day.data.list[21].weather[0].description;
+				vm.fiveDayForecastDescription4 = response5day.data.list[29].weather[0].description;
+				vm.fiveDayForecastDescription5 = response5day.data.list[37].weather[0].description;
 			}, function errorCallback(response5day) {
 				console.log("5 day forecast error");
 				console.log(response5day);
 			});
-
 		};
-
-		// vm.get5DayForecast();
 
 }]);
 
