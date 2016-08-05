@@ -18,35 +18,45 @@
 					<h1 ng-cloak ng-show="vm.weatherC">{{ vm.tempC | number:0 }}°<span ng-click="vm.getWeatherF()">C</span></h1>
 					<img ng-src="http://openweathermap.org/img/w/{{ vm.icon }}.png">
 					<h3 ng-cloak>{{ vm.description }}</h3>
-					<div id="5day" ng-cloak>
+					<hr>
+					<div id="fiveDayForecast-Title">5 Day Forecast</div>
+					<div class="fiveDayForecast-wrapper" ng-cloak>
 						<table>
-							<tr>
-								<td>{{ vm.fiveDayForecast1 | date: "MMM" }}</td>
-								<td>{{ vm.fiveDayForecast2 | date: "MMM" }}</td>
-								<td>{{ vm.fiveDayForecast3 | date: "MMM" }}</td>
-								<td>{{ vm.fiveDayForecast4 | date: "MMM" }}</td>
-								<td>{{ vm.fiveDayForecast5 | date: "MMM" }}</td>
+							<tr id="fiveDay">
+								<td class="fiveDayDate fiveDayForecast-item shade">{{ vm.fiveDayForecast1 | date: "EEE" }}<br>{{ vm.fiveDayForecast1 | date: "MMM d" }}</td>
+								<td class="fiveDayDate fiveDayForecast-item">{{ vm.fiveDayForecast2 | date: "EEE" }}<br>{{ vm.fiveDayForecast2 | date: "MMM d" }}</td>
+								<td class="fiveDayDate fiveDayForecast-item shade">{{ vm.fiveDayForecast3 | date: "EEE" }}<br>{{ vm.fiveDayForecast3 | date: "MMM d" }}</td>
+								<td class="fiveDayDate fiveDayForecast-item">{{ vm.fiveDayForecast4 | date: "EEE" }}<br>{{ vm.fiveDayForecast4 | date: "MMM d" }}</td>
+								<td class="fiveDayDate fiveDayForecast-item shade">{{ vm.fiveDayForecast5 | date: "EEE" }}<br>{{ vm.fiveDayForecast5 | date: "MMM d" }}</td>
 							</tr>
 							<tr>
-								<td><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon1 }}.png"></td>
-								<td><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon2 }}.png"></td>
-								<td><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon3 }}.png"></td>
-								<td><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon4 }}.png"></td>
-								<td><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon5 }}.png"></td>
+								<td class="fiveDayTemp shade">{{ vm.fiveDayTempHi1 }}° | {{ vm.fiveDayTempLo1 }}°</td>
+								<td class="fiveDayTemp">{{ vm.fiveDayTempHi2 }}° | {{ vm.fiveDayTempLo2 }}°</td>
+								<td class="fiveDayTemp shade">{{ vm.fiveDayTempHi3 }}° | {{ vm.fiveDayTempLo3 }}°</td>
+								<td class="fiveDayTemp">{{ vm.fiveDayTempHi4 }}° | {{ vm.fiveDayTempLo4 }}°</td>
+								<td class="fiveDayTemp shade">{{ vm.fiveDayTempHi5 }}° | {{ vm.fiveDayTempLo5 }}°</td>
 							</tr>
 							<tr>
-								<td>{{ vm.fiveDayForecastDescription1 }}</td>
+								<td class="shade"><img class="fiveDayIcon" ng-src="http://openweathermap.org/img/w/{{ vm.icon1 }}.png"></td>
+								<td class="fiveDayIcon"><img ng-src="http://openweathermap.org/img/w/{{ vm.icon2 }}.png"></td>
+								<td class="fiveDayIcon shade"><img ng-src="http://openweathermap.org/img/w/{{ vm.icon3 }}.png"></td>
+								<td class="fiveDayIcon"><img ng-src="http://openweathermap.org/img/w/{{ vm.icon4 }}.png"></td>
+								<td class="fiveDayIcon shade"><img ng-src="http://openweathermap.org/img/w/{{ vm.icon5 }}.png"></td>
+							</tr>
+							<tr>
+								<td class="shade">{{ vm.fiveDayForecastDescription1 }}</td>
 								<td>{{ vm.fiveDayForecastDescription2 }}</td>
-								<td>{{ vm.fiveDayForecastDescription3 }}</td>	
+								<td class="shade">{{ vm.fiveDayForecastDescription3 }}</td>	
 								<td>{{ vm.fiveDayForecastDescription4 }}</td>
-								<td>{{ vm.fiveDayForecastDescription5 }}</td>
+								<td class="shade">{{ vm.fiveDayForecastDescription5 }}</td>
 							</tr>
 						</table>
 					</div>
 			</div>
 		</div>
 	</div>
-
+	
+	<div id="beautiful">Have a great day!</div>
 	<div id="footer">
 		&copy; 2016 <a href="http://www.emilychen.net" target="_blank">Emily Chen</a>
 	</div>

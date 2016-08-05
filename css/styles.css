@@ -7,7 +7,7 @@ h1 {
 }
 
 .container {
-	width: 30em;
+	width: 35em;
 	margin: 5% auto 0 auto;
 	border-radius: 1em;
 	padding: 1em;
@@ -48,6 +48,45 @@ td {
 	padding: 0.5em;
 }
 
-.fiveDayIcon {
-	margin: 0 auto;
+.fiveDayDate {
+	text-align: center;
 }
+
+.fiveDayTemp {
+	text-align: center;
+}
+
+.fiveDayIcon {
+	padding: 0 auto 0 auto;
+	margin: 0 auto 0 auto;
+	/*border: 1px solid black;*/
+}
+
+#fiveDayForecast-Title {
+	text-align: center;
+	font-size: 1.75em;
+}
+
+#fiveDay {
+	margin: 0 auto;
+	padding: 0 auto;
+/*	border: 1px solid black;*/
+}
+
+.fiveDayForecast-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.shade {
+	background-color: lightgrey;
+}
+
+#beautiful {
+	margin-top: 1em;
+	text-align: center;
+	color: black;
+	font-size: 2em;
+}
+

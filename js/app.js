@@ -98,7 +98,8 @@ angular.module("MyMapApp", [])
 			var APIKEY = "3cf58566cfe72e04e12f3a19d54e08dd";
 			var params = {
 				q: town + "," + country,
-				APPID: APIKEY
+				APPID: APIKEY,
+				units: "imperial"
 			};
 			$http({
 				method: "GET",
@@ -107,11 +108,21 @@ angular.module("MyMapApp", [])
 				}).then(function successCallback(response5day) {
 				console.log("5 day forecast success");
 				console.log(response5day);
-				vm.fiveDayForecast1 = response5day.data.list[5].dt_txt;
-				vm.fiveDayForecast2 = response5day.data.list[13].dt_txt;
-				vm.fiveDayForecast3 = response5day.data.list[21].dt_txt;
-				vm.fiveDayForecast4 = response5day.data.list[29].dt_txt;
-				vm.fiveDayForecast5 = response5day.data.list[37].dt_txt;
+				vm.fiveDayForecast1 = response5day.data.list[5].dt * 1000;
+				vm.fiveDayForecast2 = response5day.data.list[13].dt * 1000;
+				vm.fiveDayForecast3 = response5day.data.list[21].dt * 1000;
+				vm.fiveDayForecast4 = response5day.data.list[29].dt * 1000;
+				vm.fiveDayForecast5 = response5day.data.list[37].dt * 1000;
+				vm.fiveDayTempHi1 = Math.round(response5day.data.list[5].main.temp_max);
+				vm.fiveDayTempHi2 = Math.round(response5day.data.list[13].main.temp_max);
+				vm.fiveDayTempHi3 = Math.round(response5day.data.list[21].main.temp_max);
+				vm.fiveDayTempHi4 = Math.round(response5day.data.list[29].main.temp_max);
+				vm.fiveDayTempHi5 = Math.round(response5day.data.list[37].main.temp_max);
+				vm.fiveDayTempLo1 = Math.round(response5day.data.list[5].main.temp_min);
+				vm.fiveDayTempLo2 = Math.round(response5day.data.list[13].main.temp_min);
+				vm.fiveDayTempLo3 = Math.round(response5day.data.list[21].main.temp_min);
+				vm.fiveDayTempLo4 = Math.round(response5day.data.list[29].main.temp_min);
+				vm.fiveDayTempLo5 = Math.round(response5day.data.list[37].main.temp_min);
 				vm.icon1 = response5day.data.list[5].weather[0].icon;
 				vm.icon2 = response5day.data.list[13].weather[0].icon;
 				vm.icon3 = response5day.data.list[21].weather[0].icon;
